@@ -22,17 +22,31 @@ for(let x=0;x<8;x++){
   for(let y=0;y<3;y++){
 if(x%2==1&&y%2==0){
 fill(255,0,0);
-ellipse(size*x+4,size*y+4,8);
+ellipse(size*x+size/2,size*y+size/2,size);
 }
 else if (x%2==0&&y%2==1) {
 fill(255,0,0);
-ellipse(size*x+4,size*y+4,4);
+ellipse(size*x+size/2,size*y+size/2,size);
 }
 else{
 
 }
   }
 }
+for(let a=0;a<8;a++){
+  for(let b=5;b<8;b++){
+if(a%2==1&&b%2==0){
+fill(0);
+ellipse(size*a+size/2,size*b+size/2,size);
+}
+else if(a%2==0&&b%2==1){
+fill(0);
+ellipse(size*a+size/2,size*b+size/2,size);
+}
+else{
 
+}
+  }
+}
 
 }
