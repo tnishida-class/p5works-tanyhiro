@@ -2,24 +2,17 @@
 function setup(){
   createCanvas(400, 400);
   background(255);
-  kobeCity(100, 200, 100);
-  kobeUniv(300, 200, 100);
+  kobeCity(50,PI/4*5,PI/4,TWO_PI,OPEN);
 }
 
-function kobeCity(x, y, size){
+function kobeCity(x,a,b,p,o){
   push();
-  noFill();
-  strokeWeight(size * 0.25);
-  strokeCap(SQUARE);
-  arc(x + size * 0.25, y, size, size, QUARTER_PI * 3, QUARTER_PI * 3 + PI);
-  // BLANK[1]
+  noStroke()
+  ellipseMode(RADIUS);
+  fill(0,150,0);
+  arc(x,x,x,x,a,b,p,o);
+  ellipseMode(CENTER);
+  fill(255);
+  arc(x,x,x+20,x+20,a-PI/8,b+PI/8,p,o);
   pop();
-}
-
-// おまけ：神戸大学のロゴを作りたい人向けに色情報だけ置いておきます
-function kobeUniv(x, y, size){
-  const red = color(196, 0, 0);
-  const blue = color(14, 47, 146);
-  const green = color(22, 131, 46);
-  const gray = color(77);
 }
