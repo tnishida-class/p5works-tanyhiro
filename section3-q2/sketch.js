@@ -1,18 +1,15 @@
 // 練習問題：神戸市のマーク
 function setup(){
   createCanvas(400, 400);
-  background(255);
-  kobeCity(50,PI/4*5,PI/4,TWO_PI,OPEN);
+  kobeCity(50, 50, 40);
 }
-
-function kobeCity(x,a,b,p,o){
+function kobeCity(x, y, wh){ // whはw と hの意味
   push();
-  noStroke()
+  noFill();
+  strokeWeight(wh * 0.5);
   ellipseMode(RADIUS);
-  fill(0,150,0);
-  arc(x,x,x,x,a,b,p,o);
-  ellipseMode(CENTER);
-  fill(255);
-  arc(x,x,x+20,x+20,a-PI/8,b+PI/8,p,o);
+  strokeCap(SQUARE);
+  arc(x, y, wh, wh, PI + PI / 4, PI / 4 + TWO_PI);
+  arc(x + wh * 1.25, y, wh, wh, PI * 3 / 4, PI * 3 / 4 + PI);
   pop();
 }
