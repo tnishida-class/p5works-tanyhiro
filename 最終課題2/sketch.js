@@ -55,7 +55,7 @@ function draw(){
 //}
 function keyPressed(){
     if (key == "w") {
-    vd = 0.7;
+    vd = 0.7000001;
     hd = -0.1;
     vy = 0;
     g = 0.12;
