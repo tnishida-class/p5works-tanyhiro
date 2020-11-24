@@ -1,25 +1,15 @@
 // 練習問題：神戸市のマーク
 function setup(){
   createCanvas(400, 400);
-  background(255);
-  kobeCity(100, 200, 100);
-  kobeUniv(300, 200, 100);
+  kobeCity(50, 50, 40);
 }
-
-function kobeCity(x, y, size){
+function kobeCity(x, y, wh){ // whはw と hの意味
   push();
   noFill();
-  strokeWeight(size * 0.25);
+  strokeWeight(wh * 0.5);
+  ellipseMode(RADIUS);
   strokeCap(SQUARE);
-  arc(x + size * 0.25, y, size, size, QUARTER_PI * 3, QUARTER_PI * 3 + PI);
-  // BLANK[1]
+  arc(x, y, wh, wh, PI + PI / 4, PI / 4 + TWO_PI);
+  arc(x + wh * 1.25, y, wh, wh, PI * 3 / 4, PI * 3 / 4 + PI);
   pop();
-}
-
-// おまけ：神戸大学のロゴを作りたい人向けに色情報だけ置いておきます
-function kobeUniv(x, y, size){
-  const red = color(196, 0, 0);
-  const blue = color(14, 47, 146);
-  const green = color(22, 131, 46);
-  const gray = color(77);
 }

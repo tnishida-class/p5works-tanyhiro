@@ -9,8 +9,8 @@ function setup(){
 }
 
 function draw(){
-  background(160, 192, 255);
+  background(160, 192, 254S);
   count = (count + 1) % cycle;
-  // BLANK[1]
+  size = constrain(count,50,200)// BLANK[1]
   ellipse(width / 2, height / 2, size);
 }

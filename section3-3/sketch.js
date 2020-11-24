@@ -14,30 +14,41 @@ function setup(){
 }
 
 function calendar(y, m){
-  let dow = dayOfWeek(y, m, 1);
-  for(let d = 1; d <= daysInMonth(y, m); d++){
-    // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
+  text(y, width / 3, 25);
+    text(m, width / 2, 25);
+    let dow = dayOfWeek(y, m, 1);
+    console.log(dayOfWeekAsString(dow));
+    for(let d = 0; d < daysInMonth(y, m); d++){
+      // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
+      text(dayOfWeekAsString(d), width / 15 * d, 50);
+      text(d + 1, (width / 15 * dow) + (width / 15 * (d % 7)) , Math.floor(d / 7) * 10 + 65);
+    }
   }
-}
 
 function isLeapYear(y){
   return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);
 }
 
 function daysInYear(y){
+  if(isLeapYear(y)){
+     return 366;
+   }
+   else{
+     return 365;
+   }
   // BLANK[1]
 }
 
 function daysInMonth(y, m){
   if(m == 2){
-    return isLeapYear(y) ? 29 : 28;
-  }
-  else if(m == 4 || m == 6 || m == 9 || m == 11){
-    return 30;
-  }
-  else{
-    return 31;
-  }
+   return isLeapYear(y) ? 29 : 28;
+ }
+ else if(m == 4 || m == 6 ||  m == 9　||  m == 11){
+   return 30;
+ }
+ else{
+   return 31;
+ }
 }
 
 function dayOfYear(y, m, d){
@@ -49,10 +60,22 @@ function dayOfYear(y, m, d){
 }
 
 function dayOfWeek(y, m, d){
-  // BLANK[2]
+  //BLANK[2]  1970. 01. 01. (Thu.)
+  let count = 0;
+  let ds;
+  if(y >= 1971){
+    for(i = 1970; i < y; i++){
+    count = count + daysInYear(i);
+    }
+    ds = count + dayOfYear(y, m, d); // ds = day sum
+  }
+  else{
+    ds = count + dayOfYear(1970, m, d);
+  }
+  return ds % 7;
 }
 
 function dayOfWeekAsString(dow){
-  const a = ["日", "月", "火", "水", "木", "金", "土", "日"];
+  const a = ["水", "木", "金", "土", "日", "月", "火", "水", "木", "金", "土", "日", "月", "火"];
   return a[dow];
 }
